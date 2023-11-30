@@ -2,15 +2,12 @@ const mongoose=require('mongoose')
 const bookshopSchema = mongoose.Schema({
     bookname:{
         type:String,
-        required:true
     },
     author:{
         type:String,
-        required:true
     },
     price:{
         type:Number,
-        required:true
     },
     genre:{
         type:String,
