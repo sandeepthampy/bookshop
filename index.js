@@ -2,10 +2,10 @@ const express=require('express')
 const mongoose=require('mongoose')
 const cors = require('cors');
 const app = express()
-const {bookshopRoute}=require('./bookshoproute')
-const {bookgenreRoute}=require('./bookgenreroute')
-const {signupRoute}= require('./signuproute')
-const {purchaseRoute}=require('./purchaseroute')
+const {bookshopRoute}=require('./bookshoproute.js')
+const {bookgenreRoute}=require('./bookgenreroute.js')
+const {signupRoute}= require('./signuproute.js')
+const {purchaseRoute}=require('./purchaseroute.js')
 
 app.use(express.json())
 app.use(cors());
