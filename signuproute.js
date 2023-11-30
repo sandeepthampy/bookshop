@@ -1,11 +1,16 @@
 const express = require("express");
 const signupRoute = express.Router();
-const { signupModel } = require("./signupmodel");
+const { signupModel } = require("./signupmodel.js");
 
 signupRoute.post("/add", async (req, res) => {
   const { name, email, password, phoneno, role, gender } = req.body;
   if (!name || !email || !password || !phoneno || !role || !gender) {
     return res.status(400).json({ message: "All field are required" });
+  } 
+
+  const user = await signupModel.findOne({email});
+  if (user) {
+    return res.status(400).json({data: "user already exists"})
   }
 
   const newsignup = new signupModel({
