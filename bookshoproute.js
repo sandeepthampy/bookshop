@@ -16,19 +16,22 @@ bookshopRoute.post('/add',async(req,res)=>{
 })
 
 bookshopRoute.get('/viewallbooks',async(req,res)=>{
-    try {
-        const books=await bookshopModel.find()
-        if(books.length > 0){
-            return  res.status(200).json({data: books})
-        }
-        else
-        {
-            return res.status(401).json('data Not found')
-        }
+    // try {
+
+    return res.status(200).json({data: "viewbooks Working"})
+    //     const books=await bookshopModel.find()
+    //     if(books.length > 0){
+    //         //return  res.status(200).json({data: books})
+    //         return res.status(200).json({data: "viewbooks Working"})
+    //     }
+    //     else
+    //     {
+    //         return res.status(401).json('data Not found')
+    //     }
         
-    } catch (error) {
-        res.status(500).json({error: error})
-    }
+    // } catch (error) {
+    //     res.status(500).json({error: error})
+    // }
 })
 
 bookshopRoute.patch('/editbook/:bookid',async(req,res)=>{
