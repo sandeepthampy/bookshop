@@ -8,7 +8,7 @@ signupRoute.post("/add", async (req, res) => {
     return res.status(400).json({ message: "All field are required" });
   }
 
-  const newsignup = await signupModel({
+  const newsignup = new signupModel({
     name,
     email,
     password,
