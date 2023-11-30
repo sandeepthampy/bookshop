@@ -9,6 +9,16 @@ const {purchaseRoute}=require('./purchaseroute')
 
 app.use(express.json())
 app.use(cors());
+ 
+ app.get ('/', (req, res) => {
+    res.status(200).json({data: "Working"})
+ })
+
+app.use('/mybookshop',bookshopRoute)
+app.use('/mybookshop/genre',bookgenreRoute)
+app.use('/mybookshop/signup',signupRoute)
+app.use('/mybookshop/login',signupRoute)
+app.use('/mybookshop/purchase',purchaseRoute)
 
 const connectDb = async ()  =>{
     try{
@@ -27,9 +37,3 @@ connectDb().then(()=>{
         console.log('Server is running')
     })
 })
-
-app.use('/mybookshop',bookshopRoute)
-app.use('/mybookshop/genre',bookgenreRoute)
-app.use('/mybookshop/signup',signupRoute)
-app.use('/mybookshop/login',signupRoute)
-app.use('/mybookshop/purchase',purchaseRoute)
