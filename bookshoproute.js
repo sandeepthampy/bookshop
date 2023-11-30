@@ -16,13 +16,18 @@ bookshopRoute.post('/add',async(req,res)=>{
 })
 
 bookshopRoute.get('/viewallbooks',async(req,res)=>{
-    const books=await bookshopModel.find()
-    if(books){
-        return  res.status(200).json(books)
-    }
-    else
-    {
-        return res.status(401).json('data Not found')
+    try {
+        const books=await bookshopModel.find()
+        if(books.length > 0){
+            return  res.status(200).json({data: books})
+        }
+        else
+        {
+            return res.status(401).json('data Not found')
+        }
+        
+    } catch (error) {
+        res.status(500).json({error: error})
     }
 })
 
